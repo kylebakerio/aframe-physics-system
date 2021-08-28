@@ -1,3 +1,6 @@
+// https://raw.githubusercontent.com/gearcoded/aframe-physics-system/master/dist/aframe-physics-system.js
+// https://github.com/gearcoded/aframe-physics-system/blob/master/dist/aframe-physics-system.js
+// https://github.com/n5ro/aframe-physics-system/issues/187#issuecomment-792048570
  
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 var CANNON = require('cannon');
@@ -15830,7 +15833,7 @@ function getGeometry (object) {
       if (mesh.geometry.attributes.position
           && mesh.geometry.attributes.position.itemSize > 2) {
         var tmpGeom = new THREE.BufferGeometry();
-        tmpGeom.fromBufferGeometry(mesh.geometry);
+        // tmpGeom.fromBufferGeometry(mesh.geometry);
         combined.merge(tmpGeom, mesh.matrixWorld);
         tmpGeom.dispose();
       }

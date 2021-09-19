@@ -17368,8 +17368,22 @@ var Body = {
 
       if (!body) return;
 
-      if (el.components.velocity) body.velocity.copy(el.getAttribute('velocity'));
-
+      // begin hacky test
+      let attemptCount = 0;
+      let syncComplete = false;
+      while (!syncComplete && attemptCount<1000) {
+        try{
+          // this is the original line
+	  if (el.components.velocity) body.velocity.copy(el.getAttribute('velocity'));
+          // end original code
+          syncComplete = true;
+        } catch (e) {
+          console.error('could not sync physics',e)
+          attemptCount++;
+        }
+      }
+      // end hacky test
+      
       if (parentEl.isScene) {
         body.quaternion.copy(el.object3D.quaternion);
         body.position.copy(el.object3D.position);
